@@ -1,55 +1,78 @@
 package br.com.luizlindner.quaddro100h.lab01.app.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 /**
- * Created by Mobile on 04/07/2017.
+ * Created by Luiz on 04/07/2017.
  */
 
-public class QuaddroActivity extends AppCompatActivity {
+public abstract class QuaddroActivity extends AppCompatActivity {
+    public static final String TIPO_DE_LOG = "LAB";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i("SPLASH", "Passei pelo onCreate");
+        Log.i(TIPO_DE_LOG, "Passei pelo onCreate em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Log.i("SPLASH", "Passei pelo onStart");
+        Log.i(TIPO_DE_LOG, "Passei pelo onStart em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Log.i("SPLASH", "Passei pelo onResume");
+        Log.i(TIPO_DE_LOG, "Passei pelo onResume em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        Log.i("SPLASH", "Passei pelo onPause");
+        Log.i(TIPO_DE_LOG, "Passei pelo onPause em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Log.i("SPLASH", "Passei pelo onStop");
+        Log.i(TIPO_DE_LOG, "Passei pelo onStop em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        Log.i("SPLASH", "Passei pelo onDestroy");
+        Log.i(TIPO_DE_LOG, "Passei pelo onDestroy em: " + getClass().getSimpleName());
     }
+
+    protected void setOnClickActivity(int id, final Class<?> c) {
+        View v = findViewById(id);
+        setOnClickActivity(v, c);
+    }
+
+    protected void setOnClickActivity(View v, final Class<?> c){
+        if(v != null) {
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), c));
+                }
+            });
+        }
+    }
+
+
 
 }

@@ -10,7 +10,7 @@ import android.widget.Button;
 import br.com.luizlindner.quaddro100h.R;
 
 /**
- * Created by Mobile on 04/07/2017.
+ * Created by Luiz on 04/07/2017.
  */
 
 public class SplashActivity extends QuaddroActivity {
@@ -37,6 +37,5 @@ public class SplashActivity extends QuaddroActivity {
             }
         }, 5000);
 
-        handler.po
     }
 }

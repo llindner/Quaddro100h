@@ -15,6 +15,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".lab01.app.controller.MainActivity" />
+        <activity android:name=".lab02.app.controller.MegasenaActivity"></activity>
+        <activity android:name=".lab03.app.controller.TictactoeActivity"></activity>
+        <activity android:name=".lab04.app.controller.EnderecoActivity"></activity>
 
     </application>
 
