@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Quaddro100h</string>
+    <string name="loading_text1">.Carregando.</string>
+    <string name="loading_text2">..Carregando..</string>
+    <string name="loading_text3">...Carregando...</string>
+    <string name="logo_alt">Logo do Overwatch</string>
+    <string name="megasena_text">Mega-Sena</string>
+    <string name="sorteios_text">Sorteios:</string>
+    <string name="sortear_btn">Sortear</string>
+    <string name="sorteios_num">1</string>
 </resources>
