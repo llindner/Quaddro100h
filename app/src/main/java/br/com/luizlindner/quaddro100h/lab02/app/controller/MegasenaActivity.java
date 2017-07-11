@@ -28,6 +28,8 @@ public class MegasenaActivity extends QuaddroActivity {
     TextView txtNumSorteios;
     ListView listaDeSorteios;
     final int corretorSeekBar = 1;
+    Integer jogos;
+    ArrayList<String> lista;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MegasenaActivity extends QuaddroActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtNumSorteios.setText(String.valueOf(progress + corretorSeekBar));
+                jogos = progress + corretorSeekBar;
             }
 
             @Override
@@ -56,10 +59,30 @@ public class MegasenaActivity extends QuaddroActivity {
             }
         });
 
+        if(savedInstanceState != null){
+            sbSorteios.setProgress(savedInstanceState.getInt("jogos"));
+            lista = savedInstanceState.getStringArrayList("lista");
+            publicar();
+        }
+    }
+
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("jogos", jogos);
+        outState.putStringArrayList("lista", lista);
     }
 
     public void sortear(View v){
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.linha_sorteio_view, R.id.textItem, Megasena.sortear(sbSorteios.getProgress() + corretorSeekBar));
+        lista = Megasena.sortear(jogos);
+        publicar();
+    }
+
+    private void publicar() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.linha_sorteio_view, R.id.textItem, lista);
         listaDeSorteios.setAdapter(adapter);
     }
 

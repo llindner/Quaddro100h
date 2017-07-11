@@ -8,7 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lab01.app.controller.SplashActivity" android:noHistory="true" >
+        <activity android:name=".lab01.app.controller.SplashActivity" android:noHistory="true" android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -16,7 +16,7 @@
         </activity>
         <activity android:name=".lab01.app.controller.MainActivity" />
         <activity android:name=".lab02.app.controller.MegasenaActivity"></activity>
-        <activity android:name=".lab03.app.controller.TictactoeActivity"></activity>
+        <activity android:name=".lab03.app.controller.TictactoeActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".lab04.app.controller.EnderecoActivity"></activity>
 
     </application>

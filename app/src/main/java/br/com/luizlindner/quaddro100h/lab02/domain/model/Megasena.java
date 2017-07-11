@@ -20,8 +20,9 @@ public final class Megasena {
         final Byte[] jogo = {0, 0, 0, 0, 0, 0};
 
         int sorteadas = 0;
+        Byte next;
         while(sorteadas < 6){
-            Byte next = (byte) (1 + Math.random() * 60);
+            next = (byte) (1 + Math.random() * 60);
             if(!Arrays.asList(jogo).contains(next)) {
                 jogo[sorteadas] = next;
                 sorteadas++;
@@ -32,12 +33,13 @@ public final class Megasena {
         return String.format("%02d  %02d  %02d  %02d  %02d  %02d", jogo);
     }
 
-    public static List<String> sortear(int jogos){
-        List<String> lista = new ArrayList<>();
+    public static ArrayList<String> sortear(int jogos){
+        ArrayList<String> lista = new ArrayList<>();
 
         int jogosFeitos = 0;
+        String sorteada;
         while(jogosFeitos < jogos) {
-            String sorteada = sortear();
+            sorteada = sortear();
             if(!lista.contains(sorteada)){
                 lista.add(sorteada);
             }
