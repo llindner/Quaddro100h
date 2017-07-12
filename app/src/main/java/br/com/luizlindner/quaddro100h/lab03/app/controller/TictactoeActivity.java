@@ -1,5 +1,8 @@
 package br.com.luizlindner.quaddro100h.lab03.app.controller;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,13 +25,15 @@ public class TictactoeActivity extends QuaddroActivity {
     private String turno;
     private Toast toast;
     private String[] casas = {"", "", "", "", "", "", "", "", ""};
+    private Integer dificuldade;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe_view);
 
-        inicio();
+        //inicio();
+        verificarDificuldade();
     }
 
     private void inicio() {
@@ -67,6 +72,7 @@ public class TictactoeActivity extends QuaddroActivity {
                             msgFinal("Empate!");
                         }else{
                             Integer posicao = Tictactoe.move(casas);
+                            Log.i("------------------>", "Posição que veio:"+posicao);
                             casas[posicao] = "X";
                             ImageView v2 = (ImageView)findViewById(getResources().getIdentifier("img_casa" + posicao, "id", getPackageName()));
                             v2.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.x));
@@ -95,6 +101,23 @@ public class TictactoeActivity extends QuaddroActivity {
             v2.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.vazio));
             casas[i] = "";
         }
-        inicio();
+        //inicio();
+        verificarDificuldade();
     }
+
+    private void verificarDificuldade(){
+        Log.i("--->", "veio verificar a dificuldade");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.txt_dificuldade);
+        builder.setItems(R.array.dificuldade, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dificuldade = which;
+                inicio();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        builder.show();
+    }
+
 }

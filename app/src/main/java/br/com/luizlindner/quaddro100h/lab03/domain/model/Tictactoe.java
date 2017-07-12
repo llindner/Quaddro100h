@@ -1,5 +1,7 @@
 package br.com.luizlindner.quaddro100h.lab03.domain.model;
 
+import android.util.Log;
+
 import java.lang.reflect.Array;
 import java.util.Random;
 
@@ -68,7 +70,7 @@ public final class Tictactoe {
         }
 
         if(empty == true){
-            return (int)(1 + Math.random() * casas.length);
+            return (int)(Math.random() * casas.length);
         }else{
             for (int i = 0; i < casas.length; i++) {
                 if(casas[i] == "X"){
@@ -91,7 +93,8 @@ public final class Tictactoe {
             Boolean fechou = false;
             Integer pos = -1;
             while(fechou == false){
-                pos = (int)(1 + Math.random() * casas.length);
+                pos = (int)(Math.random() * casas.length);
+                Log.i("---------------->", "Posição no move:"+pos);
                 if(casas[pos] == ""){
                     fechou = true;
                 }

@@ -58,6 +58,8 @@ public class MegasenaActivity extends QuaddroActivity {
 
             }
         });
+        jogos = sbSorteios.getProgress() + corretorSeekBar;
+        lista = new ArrayList<String>();
 
         if(savedInstanceState != null){
             sbSorteios.setProgress(savedInstanceState.getInt("jogos"));

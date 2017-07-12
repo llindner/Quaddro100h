@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Quaddro100h</string>
     <string name="loading_text1">.Carregando.</string>
@@ -8,9 +9,9 @@
     <string name="sorteios_text">Sorteios:</string>
     <string name="sortear_btn">Sortear</string>
     <string name="sorteios_num">1</string>
-    <string name="btn_megasena">Mega-Sena</string>
-    <string name="btn_tictactoe">Jogo da Velha</string>
     <string name="btn_endereco">Endereço</string>
+    <string name="btn_megasena">Mega-sena</string>
+    <string name="btn_tictactoe">Jogo da Velha</string>
     <string name="txt_mega">M\nE\nG\nA</string>
     <string name="txt_sena">S\nE\nN\nA</string>
     <string name="txt_dificuldade">Selecione uma dificuldade</string>
