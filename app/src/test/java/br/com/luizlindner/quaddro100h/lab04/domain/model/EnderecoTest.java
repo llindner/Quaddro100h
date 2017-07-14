@@ -2,11 +2,13 @@ package br.com.luizlindner.quaddro100h.lab04.domain.model;
 
 import org.junit.Test;
 
+import java.io.Serializable;
+
 /**
- * Created by Mobile on 12/07/2017.
+ * Created by Luiz on 12/07/2017.
  */
 
-public class EnderecoTest {
+public class EnderecoTest implements Serializable {
 
     @Test
     public void instanciaTest(){

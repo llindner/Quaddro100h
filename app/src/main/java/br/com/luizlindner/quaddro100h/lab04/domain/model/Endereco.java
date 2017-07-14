@@ -1,6 +1,7 @@
 package br.com.luizlindner.quaddro100h.lab04.domain.model;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * Created by Luiz on 12/07/2017.
@@ -14,9 +15,9 @@ public class Endereco implements Serializable {
     private CEP cep;
     private Logradouro logradouro;
 
-    public Endereco(){
+    private Endereco(){
         super();
-        this.cep = new CEP();
+        this.cep = CEP.getInstance();
         this.logradouro = new Logradouro();
     }
 
@@ -76,8 +77,12 @@ public class Endereco implements Serializable {
         getCep().setCodigo(codigo);
     }
 
+    public static Endereco getInstance(){
+        return new Endereco();
+    }
+
     public static Endereco of(String cep, String logradouroTipo, String logradouroNome, String numero, String complemento, String bairro, String municipio, UF uf) {
-        Endereco e = new Endereco();
+        Endereco e = getInstance();
 
         e.setCEPCodigo(cep);
         e.setLogradouroTipo(logradouroTipo);
@@ -89,5 +94,41 @@ public class Endereco implements Serializable {
         e.setUf(uf);
 
         return e;
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "numero='" + numero + '\'' +
+                ", complemento='" + complemento + '\'' +
+                ", cep=" + cep +
+                ", logradouro=" + logradouro +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Endereco endereco = (Endereco) o;
+
+        if (getNumero() != null ? !getNumero().equals(endereco.getNumero()) : endereco.getNumero() != null)
+            return false;
+        if (getComplemento() != null ? !getComplemento().equals(endereco.getComplemento()) : endereco.getComplemento() != null)
+            return false;
+        if (getCep() != null ? !getCep().equals(endereco.getCep()) : endereco.getCep() != null)
+            return false;
+        return getLogradouro() != null ? getLogradouro().equals(endereco.getLogradouro()) : endereco.getLogradouro() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getNumero() != null ? getNumero().hashCode() : 0;
+        result = 31 * result + (getComplemento() != null ? getComplemento().hashCode() : 0);
+        result = 31 * result + (getCep() != null ? getCep().hashCode() : 0);
+        result = 31 * result + (getLogradouro() != null ? getLogradouro().hashCode() : 0);
+        return result;
     }
 }

@@ -18,7 +18,9 @@
         <activity android:name=".lab02.app.controller.MegasenaActivity"></activity>
         <activity android:name=".lab03.app.controller.TictactoeActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".lab04.app.controller.EnderecoActivity"></activity>
+        <activity android:name=".lab05.app.controller.AnimacaoActivity"></activity>
 
     </application>
 
 </manifest>
+

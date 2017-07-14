@@ -3,6 +3,7 @@ package br.com.luizlindner.quaddro100h.lab01.app.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -66,13 +67,16 @@ public abstract class QuaddroActivity extends AppCompatActivity {
         if(v != null) {
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(getApplicationContext(), c));
+                public void onClick(View v) {
+                    Bundle anim = ActivityOptionsCompat.makeScaleUpAnimation(v, 0, 0, v.getWidth(), v.getHeight()).toBundle();
+                    startActivity(new Intent(getApplicationContext(), c), anim);
                 }
             });
         }
     }
 
-
+    public <T extends View> T getViewById(int id){
+        return (T)findViewById(id);
+    }
 
 }
