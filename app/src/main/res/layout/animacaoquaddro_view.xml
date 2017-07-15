@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titulo_animacao_quaddro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/animacao_quadro_a_quadro"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ImageView
+        android:id="@+id/sprite_megaman"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/sprite_image"
+        />
+</RelativeLayout>

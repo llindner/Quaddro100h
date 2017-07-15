@@ -36,9 +36,17 @@
 
         <ImageView
             android:id="@+id/imgv_overwatch"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/splash_icon"/>
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/splash_icon" />
+
+        <Button
+            android:id="@+id/btn_executar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Executar" />
     </RelativeLayout>
+
 </LinearLayout>

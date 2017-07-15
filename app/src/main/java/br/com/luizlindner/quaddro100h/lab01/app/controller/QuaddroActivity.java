@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import br.com.luizlindner.quaddro100h.R;
+
 /**
  * Created by Luiz on 04/07/2017.
  */
@@ -68,11 +70,18 @@ public abstract class QuaddroActivity extends AppCompatActivity {
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle anim = ActivityOptionsCompat.makeScaleUpAnimation(v, 0, 0, v.getWidth(), v.getHeight()).toBundle();
+                    Bundle anim = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_left, R.anim.slide_out_left).toBundle();
                     startActivity(new Intent(getApplicationContext(), c), anim);
                 }
             });
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 
     public <T extends View> T getViewById(int id){

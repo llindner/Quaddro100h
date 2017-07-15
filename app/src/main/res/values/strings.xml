@@ -15,4 +15,6 @@
     <string name="txt_sena">S\nE\nN\nA</string>
     <string name="txt_dificuldade">Selecione uma dificuldade</string>
     <string name="btn_animacao">Animação</string>
+    <string name="animacao_quadro_a_quadro">Animação (Quadro a Quadro)</string>
+    <string name="btn_animacao_quaddro">Animação Quadro</string>
 </resources>
