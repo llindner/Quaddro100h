@@ -1,5 +1,7 @@
 package br.com.luizlindner.quaddro100h.lab04.domain.model;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.Locale;
 
@@ -29,6 +31,20 @@ public class CEP implements Serializable {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public void validar() throws Exception {
+        if(getCodigo() == null){
+            throw new Exception("CEP NULO");
+        }
+
+        if(getCodigo().isEmpty()){
+            throw new Exception("Favor informar o CEP");
+        }
+
+        if(getCodigo().length() != 8){
+            throw new Exception("Favor informar um CEP válido");
+        }
     }
 
     @Override

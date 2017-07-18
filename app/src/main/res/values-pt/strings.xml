@@ -18,4 +18,7 @@
     <string name="btn_animacao">Animação</string>
     <string name="animacao_quadro_a_quadro">Animação (Quadro a Quadro)</string>
     <string name="btn_animacao_quaddro">Animação Quadro</string>
+    <string name="lab04_endereco_cancelado">Cadastro cancelado!</string>
+    <string name="lab04_endereco_salvo">Endereço salvo!</string>
+    <string name="lab04_endereco_buscando">Buscando...</string>
 </resources>

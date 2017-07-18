@@ -21,42 +21,36 @@ public abstract class QuaddroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Log.i(TIPO_DE_LOG, "Passei pelo onCreate em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         Log.i(TIPO_DE_LOG, "Passei pelo onStart em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         Log.i(TIPO_DE_LOG, "Passei pelo onResume em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         Log.i(TIPO_DE_LOG, "Passei pelo onPause em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
         Log.i(TIPO_DE_LOG, "Passei pelo onStop em: " + getClass().getSimpleName());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         Log.i(TIPO_DE_LOG, "Passei pelo onDestroy em: " + getClass().getSimpleName());
     }
 
@@ -80,7 +74,6 @@ public abstract class QuaddroActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 

@@ -17,7 +17,14 @@
         <activity android:name=".lab01.app.controller.MainActivity" />
         <activity android:name=".lab02.app.controller.MegasenaActivity"></activity>
         <activity android:name=".lab03.app.controller.TictactoeActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".lab04.app.controller.EnderecoActivity"></activity>
+        <activity android:name=".lab04.app.controller.EnderecoInserirActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.endereco.INSERIR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".lab04.app.controller.EnderecoAlterarActivity"></activity>
+        <activity android:name=".lab04.app.controller.EnderecoListarActivity" android:theme="@style/Widget.AppCompat.Light.ActionBar"></activity>
         <activity android:name=".lab05.app.controller.AnimacaoActivity"></activity>
         <activity android:name=".lab06.app.controller.AnimacaoQuaddroActivity"></activity>
 
