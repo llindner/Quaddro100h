@@ -13,6 +13,7 @@ import android.widget.Toast;
 import br.com.luizlindner.quaddro100h.R;
 import br.com.luizlindner.quaddro100h.lab01.app.controller.QuaddroActivity;
 import br.com.luizlindner.quaddro100h.lab04.domain.model.CEP;
+import retrofit2.Retrofit;
 
 /**
  * Created by Luiz on 06/07/2017.
@@ -21,6 +22,7 @@ import br.com.luizlindner.quaddro100h.lab04.domain.model.CEP;
 public class EnderecoInserirActivity extends QuaddroActivity {
     EditText cepView;
     CEP cepModel;
+    Retrofit retrofit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class EnderecoInserirActivity extends QuaddroActivity {
 
         cepView = getViewById(R.id.cep);
         cepModel = CEP.getInstance();
+        retrofit = new Retrofit.Builder().baseUrl("http://api.postmon.com.br/v1/cep/").build();
     }
 
     @Override
@@ -71,7 +74,7 @@ public class EnderecoInserirActivity extends QuaddroActivity {
             cepModel.validar();
             Log.i(TIPO_DE_LOG, "CEP válido!");
             toast = Toast.makeText(this, R.string.lab04_endereco_buscando, Toast.LENGTH_SHORT);
-            // TODO Chamada na Web via
+
             // TODO Preencher os campos do formulário
         } catch (Exception cause){
             Log.i(TIPO_DE_LOG, "OPS...", cause);
