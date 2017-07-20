@@ -7,31 +7,54 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import br.com.luizlindner.quaddro100h.R;
 import br.com.luizlindner.quaddro100h.lab01.app.controller.QuaddroActivity;
+import br.com.luizlindner.quaddro100h.lab04.app.dto.EnderecoDTO;
+import br.com.luizlindner.quaddro100h.lab04.app.util.RetrofitHelper;
+import br.com.luizlindner.quaddro100h.lab04.app.ws.EnderecoEndpoint;
 import br.com.luizlindner.quaddro100h.lab04.domain.model.CEP;
-import retrofit2.Retrofit;
+import br.com.luizlindner.quaddro100h.lab04.domain.model.UF;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Luiz on 06/07/2017.
  */
 
 public class EnderecoInserirActivity extends QuaddroActivity {
-    EditText cepView;
+    EditText cepView, logradouroView, numeroView, complementoView, bairroView, municipioView;
+    Spinner ufView;
     CEP cepModel;
-    Retrofit retrofit;
+    EnderecoEndpoint endpoint;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.endereco_inserir_view);
 
-        cepView = getViewById(R.id.cep);
         cepModel = CEP.getInstance();
-        retrofit = new Retrofit.Builder().baseUrl("http://api.postmon.com.br/v1/cep/").build();
+        endpoint = RetrofitHelper.with(this).createEnderecoEndpoint();
+
+        cepView = getViewById(R.id.cep);
+        logradouroView = getViewById(R.id.logradouro);
+        numeroView = getViewById(R.id.numero);
+        complementoView = getViewById(R.id.complemento);
+        bairroView = getViewById(R.id.bairro);
+        municipioView = getViewById(R.id.municipio);
+        ufView = getViewById(R.id.uf);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        ufView.setAdapter(new ArrayAdapter<UF>(this, android.R.layout.simple_list_item_1, UF.values()));
     }
 
     @Override
@@ -74,7 +97,31 @@ public class EnderecoInserirActivity extends QuaddroActivity {
             cepModel.validar();
             Log.i(TIPO_DE_LOG, "CEP válido!");
             toast = Toast.makeText(this, R.string.lab04_endereco_buscando, Toast.LENGTH_SHORT);
+            Call<EnderecoDTO> call = endpoint.consultarCEP(cepModel.getCodigo());
+            call.enqueue(new Callback<EnderecoDTO>() {
+                @Override
+                public void onResponse(Call<EnderecoDTO> call, Response<EnderecoDTO> response) {
+                    Log.i(TIPO_DE_LOG, "Chamada do RetroFit deu certo!");
+                    EnderecoDTO dto;
+                    if(response.isSuccessful()){
+                        dto = response.body();
+                        Log.d(TIPO_DE_LOG, "Objeto do DTO:" + dto.toString());
+                        logradouroView.setText(dto.getLogradouro());
+                        complementoView.setText(dto.getComplemento());
+                        bairroView.setText(dto.getBairro());
+                        municipioView.setText(dto.getCidade());
+                        UF uf = UF.valueOf(dto.getEstado());
+                        ufView.setSelection(uf.ordinal());
 
+                        Log.i(TIPO_DE_LOG, "DTO Sucessful");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<EnderecoDTO> call, Throwable t) {
+                    Log.w(TIPO_DE_LOG, "Chamada do RetroFit errado!", t);
+                }
+            });
             // TODO Preencher os campos do formulário
         } catch (Exception cause){
             Log.i(TIPO_DE_LOG, "OPS...", cause);

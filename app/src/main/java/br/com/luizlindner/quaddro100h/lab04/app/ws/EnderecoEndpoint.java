@@ -11,6 +11,6 @@ import retrofit2.http.Path;
 
 public interface EnderecoEndpoint {
 
-    @GET("/{codigo}")
+    @GET("cep/{codigo}")
     Call<EnderecoDTO> consultarCEP(@Path("codigo") String codigo);
 }

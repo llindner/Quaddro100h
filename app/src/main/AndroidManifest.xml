@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           
     package="br.com.luizlindner.quaddro100h">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
@@ -28,7 +28,9 @@
         <activity android:name=".lab05.app.controller.AnimacaoActivity"></activity>
         <activity android:name=".lab06.app.controller.AnimacaoQuaddroActivity"></activity>
 
+
     </application>
+
 
 </manifest>
 

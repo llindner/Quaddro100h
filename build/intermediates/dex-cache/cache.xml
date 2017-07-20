@@ -3,12 +3,57 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_56aecdaf66636bce4ce3327fec81316e517f8650\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.13.0_ad6d466df0ce95fc38af97611c909384aa228b6b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.8.0\5a11f020cce2d11eb71ba916700600e18c4547e7\okhttp-3.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5a11f020cce2d11eb71ba916700600e18c4547e7">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.8.0_57536e1a31e7608e1357451a3515085739eab04d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Projetos\Quaddro100h\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="82e498576bb3b9cfe95a145cacffb013a7ad14df">
+        sha1="9fef9c364b0837bd48a6cbaa697e2f7da5ca44a7">
         <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6bbe4a187cb2a472d98e1d866b473eca90cce316\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bd2d78eac7e8cfbec062d9434e866735079181fc">
+        <dex dex="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_77229170974acd28fcf482a57b64e5d257766dc9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_7de8ae383d33b31963370cb55947dc7a492a1ace\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +63,24 @@
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_567b09e0afed837b3cf6eb4363914f5f3742c8d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.3.0\bcacde6a8ccedcc56c127403d26b76072fe6214d\retrofit-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.3.0_76f31d500c6ea7066ff05f0c5738568f045833c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.3.0\9e09011e9767bb76b5e27c9b8223476b93b14631\converter-gson-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.3.0_15874ddbb3d8975290acf44f3cb2d7d801101455\classes.dex" />
     </item>
 
 </items>
