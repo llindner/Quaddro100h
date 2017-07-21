@@ -1,1 +1,1 @@
-include ':app', ':tictactoe'
+include ':app'

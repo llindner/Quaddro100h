@@ -53,6 +53,18 @@ public class Logradouro implements Serializable {
         getBairro().setNome(nome);
     }
 
+    public UF getUf(){
+        return getBairro().getUf();
+    }
+
+    public Integer getUFOrdinal(){
+        return getBairro().getUFOrdinal();
+    }
+
+    public String getMunicipioNome(){
+        return getBairro().getMunicipioNome();
+    }
+
     @Override
     public String toString() {
         return "Logradouro{" +

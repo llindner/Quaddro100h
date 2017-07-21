@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 
 public enum UF implements Serializable {
-    ESCOLHA("..."), AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO;
+    ESCOLHA("--"), AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO;
 
     private String descricao;
 
@@ -17,6 +17,10 @@ public enum UF implements Serializable {
 
     UF(String descricao){
         this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 
     @Override

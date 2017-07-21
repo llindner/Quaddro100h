@@ -40,6 +40,14 @@ public class Bairro implements Serializable {
         getMunicipio().setNome(nome);
     }
 
+    public String getMunicipioNome(){
+        return getMunicipio().getNome();
+    }
+
+    public Integer getUFOrdinal(){
+        return getMunicipio().getUFOrdinal();
+    }
+
     @Override
     public String toString() {
         return "Bairro{" +
@@ -66,5 +74,10 @@ public class Bairro implements Serializable {
         int result = getNome() != null ? getNome().hashCode() : 0;
         result = 31 * result + (getMunicipio() != null ? getMunicipio().hashCode() : 0);
         return result;
+    }
+
+
+    public UF getUf() {
+        return getMunicipio().getUf();
     }
 }

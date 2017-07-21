@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Mobile\.android\build-cache\36e1c703d83feca4c9151af06fcb06effa8cad2c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a21eed8709988fc3f8641897910305c7386532e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
         jumboMode="true"
         optimize="true"
@@ -54,6 +63,24 @@
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_7de8ae383d33b31963370cb55947dc7a492a1ace\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mobile\.android\build-cache\14bef7f54646ac27d47a68a947c9aa4b636fcae9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8f676c71d9080d74de276ebbef5c89287a290738\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\android\databinding\baseLibrary\2.3.3\baseLibrary-2.3.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="eb3399988a52099b0127e27fb5bed666eca86ace">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\baseLibrary-2.3.3_cc3afaf91424e734a49c56928e36b4d96c0d272b\classes.dex" />
     </item>
     <item
         is-multidex="true"

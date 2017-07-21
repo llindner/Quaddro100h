@@ -32,6 +32,10 @@ public class Municipio implements Serializable {
         this.uf = uf;
     }
 
+    public Integer getUFOrdinal(){
+        return getUf().ordinal();
+    }
+
     @Override
     public String toString() {
         return "Municipio{" +

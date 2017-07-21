@@ -81,6 +81,18 @@ public class Endereco implements Serializable {
         return new Endereco();
     }
 
+    public UF getUf(){
+        return getLogradouro().getUf();
+    }
+
+    public Integer getUFOrdinal(){
+        return getLogradouro().getUFOrdinal();
+    }
+
+    public String getMunicipioNome(){
+        return getLogradouro().getMunicipioNome();
+    }
+
     public static Endereco of(String cep, String logradouroTipo, String logradouroNome, String numero, String complemento, String bairro, String municipio, UF uf) {
         Endereco e = getInstance();
 
@@ -92,6 +104,22 @@ public class Endereco implements Serializable {
         e.setBairroNome(bairro);
         e.setMunicipioNome(municipio);
         e.setUf(uf);
+
+        return e;
+    }
+
+    public static Endereco of(String cep, String logradouroCompleto, String bairro, String municipio, String uf){
+        Endereco e = getInstance();
+
+        e.setCEPCodigo(cep);
+        int index = logradouroCompleto.indexOf(" ");
+        e.setLogradouroTipo(logradouroCompleto.substring(0, index));
+        e.setLogradouroNome(logradouroCompleto.substring(index+1));
+        e.setNumero("");
+        e.setComplemento("");
+        e.setBairroNome(bairro);
+        e.setMunicipioNome(municipio);
+        e.setUf(UF.valueOf(uf));
 
         return e;
     }
