@@ -27,7 +27,12 @@
         <activity android:name=".lab04.app.controller.EnderecoListarActivity" android:theme="@style/Widget.AppCompat.Light.ActionBar"></activity>
         <activity android:name=".lab05.app.controller.AnimacaoActivity"></activity>
         <activity android:name=".lab06.app.controller.AnimacaoQuaddroActivity"></activity>
+        <activity android:name=".lab07.app.controller.StarwarsListarActivity" android:theme="@style/Widget.AppCompat.Light.ActionBar"></activity>
+        <activity android:name=".lab07.app.controller.StarwarsInserirActivity"></activity>
+
+
         <service android:name=".lab04.app.service.ConsultarCEPService" />
+
 
     </application>
 

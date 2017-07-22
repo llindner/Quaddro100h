@@ -10,6 +10,7 @@ import br.com.luizlindner.quaddro100h.lab04.app.controller.EnderecoInserirActivi
 import br.com.luizlindner.quaddro100h.lab04.app.controller.EnderecoListarActivity;
 import br.com.luizlindner.quaddro100h.lab05.app.controller.AnimacaoActivity;
 import br.com.luizlindner.quaddro100h.lab06.app.controller.AnimacaoQuaddroActivity;
+import br.com.luizlindner.quaddro100h.lab07.app.controller.StarwarsListarActivity;
 
 /**
  * Created by Luiz on 04/07/2017.
@@ -28,6 +29,7 @@ public class MainActivity extends QuaddroActivity {
         setOnClickActivity(R.id.btn_endereco, EnderecoListarActivity.class);
         setOnClickActivity(R.id.btn_animacao, AnimacaoActivity.class);
         setOnClickActivity(R.id.btn_animacao_quaddro, AnimacaoQuaddroActivity.class);
+        setOnClickActivity(R.id.btn_starwars, StarwarsListarActivity.class);
     }
 
 }

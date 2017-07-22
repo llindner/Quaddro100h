@@ -43,35 +43,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="9fef9c364b0837bd48a6cbaa697e2f7da5ca44a7">
+        sha1="10bc4d0155ea72e727470584ead422dc50f21c85">
         <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6bbe4a187cb2a472d98e1d866b473eca90cce316\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="bd2d78eac7e8cfbec062d9434e866735079181fc">
-        <dex dex="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_77229170974acd28fcf482a57b64e5d257766dc9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Projetos\Quaddro100h\tictactoe\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_7de8ae383d33b31963370cb55947dc7a492a1ace\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Mobile\.android\build-cache\14bef7f54646ac27d47a68a947c9aa4b636fcae9\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
-        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8f676c71d9080d74de276ebbef5c89287a290738\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,6 +57,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Mobile\.android\build-cache\14bef7f54646ac27d47a68a947c9aa4b636fcae9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8f676c71d9080d74de276ebbef5c89287a290738\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Projetos\Quaddro100h\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -93,21 +75,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.3.0\bcacde6a8ccedcc56c127403d26b76072fe6214d\retrofit-2.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
-        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.3.0_76f31d500c6ea7066ff05f0c5738568f045833c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.3.0\9e09011e9767bb76b5e27c9b8223476b93b14631\converter-gson-2.3.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
         <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.3.0_15874ddbb3d8975290acf44f3cb2d7d801101455\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mobile\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.3.0\bcacde6a8ccedcc56c127403d26b76072fe6214d\retrofit-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.3.0_76f31d500c6ea7066ff05f0c5738568f045833c7\classes.dex" />
     </item>
 
 </items>

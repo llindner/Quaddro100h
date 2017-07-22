@@ -3,6 +3,7 @@ package br.com.luizlindner.quaddro100h.lab04.app.controller;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,8 +34,17 @@ import br.com.luizlindner.quaddro100h.lab04.domain.model.UF;
 public class EnderecoAlterarActivity extends QuaddroActivity {
 
     EnderecoAlterarViewBinding binding;
-    EnderecoEndpoint endpoint;
-    BroadcastReceiver consultaCEP;
+
+    BroadcastReceiver consultaCEP = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i(TIPO_DE_LOG, "Entrou no broadcast receiver");
+            Endereco model = (Endereco) intent.getSerializableExtra("model");
+            if(model != null){
+                binding.setEndereco(model);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,10 +52,8 @@ public class EnderecoAlterarActivity extends QuaddroActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.endereco_alterar_view);
         binding.setController(new EnderecoAction(binding));
-        endpoint = RetrofitHelper.with(this).createEnderecoEndpoint();
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater i = new MenuInflater(getApplicationContext());
         i.inflate(R.menu.endereco_salvar_menu, menu);
@@ -66,6 +74,13 @@ public class EnderecoAlterarActivity extends QuaddroActivity {
     protected void onResume() {
         super.onResume();
         binding.uf.setAdapter(new ArrayAdapter<UF>(this, android.R.layout.simple_list_item_1, UF.values()));
+        registerReceiver(consultaCEP, new IntentFilter("retornoCEP"));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(consultaCEP);
     }
 
     @Override

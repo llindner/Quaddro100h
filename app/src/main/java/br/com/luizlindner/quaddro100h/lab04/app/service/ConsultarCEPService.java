@@ -35,7 +35,7 @@ public class ConsultarCEPService extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        Intent i = new Intent("");
+        Intent i = new Intent("retornoCEP");
         if(intent != null) {
             try {
                 String cep = intent.getStringExtra("cep");

@@ -57,6 +57,10 @@ public class Logradouro implements Serializable {
         return getBairro().getUf();
     }
 
+    public String getLogradouroCompleto(){
+        return String.format(Locale.getDefault(), "%s %s", getTipo(), getNome());
+    }
+
     public Integer getUFOrdinal(){
         return getBairro().getUFOrdinal();
     }
