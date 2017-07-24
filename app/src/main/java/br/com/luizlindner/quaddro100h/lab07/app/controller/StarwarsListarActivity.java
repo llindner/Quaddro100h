@@ -48,22 +48,22 @@ public class StarwarsListarActivity extends ListActivity {
     protected void onResume() {
         super.onResume();
 
-        Planet homeworld = Planet.of("Tatooine", "23", "304", "10465", "arid", "1 standard", "desert", "1", "200000");
+        Planet homeworld = Planet.of("1","Tatooine", "23", "304", "10465", "arid", "1 standard", "desert", "1", "200000");
 
         ArrayList<Film> films = new ArrayList<>();
-        films.add(Film.of("A New Hope", "4", "It is a period of civil war.", "George Lucas", "Gary Kurtz, Rick McCallum", "1977-05-25"));
+        films.add(Film.of("1","A New Hope", "4", "It is a period of civil war.", "George Lucas", "Gary Kurtz, Rick McCallum", "1977-05-25"));
 
         ArrayList<Specie> species = new ArrayList<>();
-        species.add(Specie.of("Human", "Mammal", "Sentient", "180", "caucasian, black, asian, hispanic", "blonde, brown, black, red", "brown, blue, green, hazel, grey, amber", "120", "Galactic Basic"));
+        species.add(Specie.of("1","Human", "Mammal", "Sentient", "180", "caucasian, black, asian, hispanic", "blonde, brown, black, red", "brown, blue, green, hazel, grey, amber", "120", "Galactic Basic"));
 
         ArrayList<Vehicle> vehicles = new ArrayList<>();
-        vehicles.add(Vehicle.of("Snowspeeder", "t-47 airspeeder", "Incom corporation", "unknown", "4.5", "650", "2", "0", "10", "none", "airspeeder"));
+        vehicles.add(Vehicle.of("1","Snowspeeder", "t-47 airspeeder", "Incom corporation", "unknown", "4.5", "650", "2", "0", "10", "none", "airspeeder"));
 
         ArrayList<Starship> starships = new ArrayList<>();
-        starships.add(Starship.of("Death Star", "DS-1 Orbital Battle Station", "Imperial Department of Military Research, Sienar Fleet Systems", "1000000000000", "120000", "n/a", "342953", "843342", "1000000000000", "3 years", "4.0", "10", "Deep Space Mobile Battlestation"));
+        starships.add(Starship.of("1","Death Star", "DS-1 Orbital Battle Station", "Imperial Department of Military Research, Sienar Fleet Systems", "1000000000000", "120000", "n/a", "342953", "843342", "1000000000000", "3 years", "4.0", "10", "Deep Space Mobile Battlestation"));
 
         ArrayList<People> list = new ArrayList<>();
-        list.add(People.of("Luke Skywalker", "172", "77", "blond", "fair", "blue", "19BBY", "male", homeworld, films, species, vehicles, starships));
+        list.add(People.of("1","Luke Skywalker", "172", "77", "blond", "fair", "blue", "19BBY", "male", homeworld, films, species, vehicles, starships));
 
         ArrayAdapter<People> adapter = new ArrayAdapter<People>(this, android.R.layout.simple_list_item_1, list);
         setListAdapter(adapter);

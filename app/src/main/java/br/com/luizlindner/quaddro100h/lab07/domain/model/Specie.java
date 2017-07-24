@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class Specie implements Serializable{
+    private String _id;
     private String name;
     private String classification;
     private String designation;
@@ -26,8 +27,9 @@ public class Specie implements Serializable{
         return new Specie();
     }
 
-    public static Specie of(String name, String classification, String designation, String averageHeight, String skinColors, String hairColors, String eyeColors, String averageLifespan, String language){
+    public static Specie of(String _id, String name, String classification, String designation, String averageHeight, String skinColors, String hairColors, String eyeColors, String averageLifespan, String language){
         Specie s = Specie.getInstance();
+        s.set_id(_id);
         s.setName(name);
         s.setClassification(classification);
         s.setDesignation(designation);
@@ -38,6 +40,14 @@ public class Specie implements Serializable{
         s.setAverageLifespan(averageLifespan);
         s.setLanguage(language);
         return s;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -123,7 +133,8 @@ public class Specie implements Serializable{
     @Override
     public String toString() {
         return "Specie{" +
-                "name='" + name + '\'' +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
                 ", classification='" + classification + '\'' +
                 ", designation='" + designation + '\'' +
                 ", averageHeight='" + averageHeight + '\'' +
@@ -143,6 +154,8 @@ public class Specie implements Serializable{
 
         Specie specie = (Specie) o;
 
+        if (get_id() != null ? !get_id().equals(specie.get_id()) : specie.get_id() != null)
+            return false;
         if (getName() != null ? !getName().equals(specie.getName()) : specie.getName() != null)
             return false;
         if (getClassification() != null ? !getClassification().equals(specie.getClassification()) : specie.getClassification() != null)
@@ -167,7 +180,8 @@ public class Specie implements Serializable{
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
+        int result = get_id() != null ? get_id().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getClassification() != null ? getClassification().hashCode() : 0);
         result = 31 * result + (getDesignation() != null ? getDesignation().hashCode() : 0);
         result = 31 * result + (getAverageHeight() != null ? getAverageHeight().hashCode() : 0);

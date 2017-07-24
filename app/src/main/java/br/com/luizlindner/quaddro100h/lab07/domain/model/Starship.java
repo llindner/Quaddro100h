@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class Starship implements Serializable {
+    private String _id;
     private String name;
     private String model;
     private String manufacturer;
@@ -29,8 +30,9 @@ public class Starship implements Serializable {
         return new Starship();
     }
 
-    public static Starship of(String name, String model, String manufacturer, String costInCredits, String length, String maxAtmosphericSpeed, String crew, String passengers, String cargoCapacity, String consumables, String hyperdriveRating, String mglt, String starshipClass){
+    public static Starship of(String _id, String name, String model, String manufacturer, String costInCredits, String length, String maxAtmosphericSpeed, String crew, String passengers, String cargoCapacity, String consumables, String hyperdriveRating, String mglt, String starshipClass){
         Starship s = Starship.getInstance();
+        s.set_id(_id);
         s.setName(name);
         s.setModel(model);
         s.setManufacturer(manufacturer);
@@ -45,6 +47,14 @@ public class Starship implements Serializable {
         s.setMglt(mglt);
         s.setStarshipClass(starshipClass);
         return s;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -154,7 +164,8 @@ public class Starship implements Serializable {
     @Override
     public String toString() {
         return "Starship{" +
-                "name='" + name + '\'' +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
                 ", model='" + model + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", costInCredits='" + costInCredits + '\'' +
@@ -177,6 +188,8 @@ public class Starship implements Serializable {
 
         Starship starship = (Starship) o;
 
+        if (get_id() != null ? !get_id().equals(starship.get_id()) : starship.get_id() != null)
+            return false;
         if (getName() != null ? !getName().equals(starship.getName()) : starship.getName() != null)
             return false;
         if (getModel() != null ? !getModel().equals(starship.getModel()) : starship.getModel() != null)
@@ -207,7 +220,8 @@ public class Starship implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
+        int result = get_id() != null ? get_id().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getModel() != null ? getModel().hashCode() : 0);
         result = 31 * result + (getManufacturer() != null ? getManufacturer().hashCode() : 0);
         result = 31 * result + (getCostInCredits() != null ? getCostInCredits().hashCode() : 0);

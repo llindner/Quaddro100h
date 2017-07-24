@@ -8,6 +8,7 @@ import java.util.Date;
  */
 
 public class Film implements Serializable {
+    private String _id;
     private String title;
     private String episodeId;
     private String openinCrawl;
@@ -23,8 +24,9 @@ public class Film implements Serializable {
         return new Film();
     }
 
-    public static Film of(String title, String episodeId, String openinCrawl, String director, String producer, String releaseDate){
+    public static Film of(String _id, String title, String episodeId, String openinCrawl, String director, String producer, String releaseDate){
         Film f = Film.getInstance();
+        f.set_id(_id);
         f.setTitle(title);
         f.setEpisodeId(episodeId);
         f.setOpeninCrawl(openinCrawl);
@@ -32,6 +34,14 @@ public class Film implements Serializable {
         f.setProducer(producer);
         f.setReleaseDate(releaseDate);
         return f;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getTitle() {
@@ -85,12 +95,13 @@ public class Film implements Serializable {
     @Override
     public String toString() {
         return "Film{" +
-                "title='" + title + '\'' +
+                "_id='" + _id + '\'' +
+                ", title='" + title + '\'' +
                 ", episodeId='" + episodeId + '\'' +
                 ", openinCrawl='" + openinCrawl + '\'' +
                 ", director='" + director + '\'' +
                 ", producer='" + producer + '\'' +
-                ", releaseDate=" + releaseDate +
+                ", releaseDate='" + releaseDate + '\'' +
                 '}';
     }
 
@@ -101,28 +112,29 @@ public class Film implements Serializable {
 
         Film film = (Film) o;
 
-        if (getTitle() != null ? !getTitle().equals(film.getTitle()) : film.getTitle() != null)
+        if (_id != null ? !_id.equals(film._id) : film._id != null) return false;
+        if (title != null ? !title.equals(film.title) : film.title != null) return false;
+        if (episodeId != null ? !episodeId.equals(film.episodeId) : film.episodeId != null)
             return false;
-        if (getEpisodeId() != null ? !getEpisodeId().equals(film.getEpisodeId()) : film.getEpisodeId() != null)
+        if (openinCrawl != null ? !openinCrawl.equals(film.openinCrawl) : film.openinCrawl != null)
             return false;
-        if (getOpeninCrawl() != null ? !getOpeninCrawl().equals(film.getOpeninCrawl()) : film.getOpeninCrawl() != null)
+        if (director != null ? !director.equals(film.director) : film.director != null)
             return false;
-        if (getDirector() != null ? !getDirector().equals(film.getDirector()) : film.getDirector() != null)
+        if (producer != null ? !producer.equals(film.producer) : film.producer != null)
             return false;
-        if (getProducer() != null ? !getProducer().equals(film.getProducer()) : film.getProducer() != null)
-            return false;
-        return getReleaseDate() != null ? getReleaseDate().equals(film.getReleaseDate()) : film.getReleaseDate() == null;
+        return releaseDate != null ? releaseDate.equals(film.releaseDate) : film.releaseDate == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getTitle() != null ? getTitle().hashCode() : 0;
-        result = 31 * result + (getEpisodeId() != null ? getEpisodeId().hashCode() : 0);
-        result = 31 * result + (getOpeninCrawl() != null ? getOpeninCrawl().hashCode() : 0);
-        result = 31 * result + (getDirector() != null ? getDirector().hashCode() : 0);
-        result = 31 * result + (getProducer() != null ? getProducer().hashCode() : 0);
-        result = 31 * result + (getReleaseDate() != null ? getReleaseDate().hashCode() : 0);
+        int result = _id != null ? _id.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (episodeId != null ? episodeId.hashCode() : 0);
+        result = 31 * result + (openinCrawl != null ? openinCrawl.hashCode() : 0);
+        result = 31 * result + (director != null ? director.hashCode() : 0);
+        result = 31 * result + (producer != null ? producer.hashCode() : 0);
+        result = 31 * result + (releaseDate != null ? releaseDate.hashCode() : 0);
         return result;
     }
 }

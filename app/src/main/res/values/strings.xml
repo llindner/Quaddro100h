@@ -20,6 +20,8 @@
     <string name="lab04_endereco_cancelado">Cadastro cancelado!</string>
     <string name="lab04_endereco_salvo">Endereço salvo!</string>
     <string name="lab04_endereco_buscando">Buscando…</string>
+    <string name="lab07_sw_buscando">Buscando…</string>
     <string name="lab04_retrofit_baseUrl_cep" translatable="false">http://api.postmon.com.br/v1/</string>
+    <string name="lab07_retrofit_baseUrl_sw" translatable="false">http://swapi.co/api/</string>
     <string name="btn_starwars">StarWars</string>
 </resources>

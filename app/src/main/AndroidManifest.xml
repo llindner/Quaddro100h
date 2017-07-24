@@ -32,6 +32,7 @@
 
 
         <service android:name=".lab04.app.service.ConsultarCEPService" />
+        <service android:name=".lab07.app.service.ConsultarStarwarsService" />
 
 
     </application>

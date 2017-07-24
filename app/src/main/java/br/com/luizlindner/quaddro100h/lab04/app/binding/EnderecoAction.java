@@ -2,22 +2,18 @@ package br.com.luizlindner.quaddro100h.lab04.app.binding;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import br.com.luizlindner.quaddro100h.R;
 import br.com.luizlindner.quaddro100h.databinding.EnderecoAlterarViewBinding;
 import br.com.luizlindner.quaddro100h.lab04.app.service.ConsultarCEPService;
-import br.com.luizlindner.quaddro100h.lab04.domain.model.Endereco;
-import br.com.luizlindner.quaddro100h.lab04.domain.model.UF;
 
 /**
  * Created by Luiz on 20/07/2017.
  */
 
 public class EnderecoAction {
-
     private EnderecoAlterarViewBinding binding;
 
     public EnderecoAction(EnderecoAlterarViewBinding binding) {

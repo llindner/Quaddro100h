@@ -13,17 +13,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import br.com.luizlindner.quaddro100h.R;
 import br.com.luizlindner.quaddro100h.databinding.EnderecoAlterarViewBinding;
 import br.com.luizlindner.quaddro100h.lab01.app.controller.QuaddroActivity;
 import br.com.luizlindner.quaddro100h.lab04.app.binding.EnderecoAction;
-import br.com.luizlindner.quaddro100h.lab04.app.util.RetrofitHelper;
-import br.com.luizlindner.quaddro100h.lab04.app.ws.EnderecoEndpoint;
-import br.com.luizlindner.quaddro100h.lab04.domain.model.CEP;
 import br.com.luizlindner.quaddro100h.lab04.domain.model.Endereco;
 import br.com.luizlindner.quaddro100h.lab04.domain.model.UF;
 
@@ -91,7 +86,4 @@ public class EnderecoAlterarActivity extends QuaddroActivity {
         Toast.makeText(this, "Alteração cancelada!", Toast.LENGTH_LONG).show();
     }
 
-    public void consultarCep(View v){
-
-    }
 }

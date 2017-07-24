@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 
 public class Vehicle implements Serializable{
-
+    private String _id;
     private String name;
     private String model;
     private String manufacturer;
@@ -28,8 +28,9 @@ public class Vehicle implements Serializable{
         return new Vehicle();
     }
 
-    public static Vehicle of(String name, String model, String manufacturer, String costInCredits, String length, String maxAtmosphericSpeed, String crew, String passengers, String cargoCapacity, String consumables, String vehicleClass){
+    public static Vehicle of(String _id, String name, String model, String manufacturer, String costInCredits, String length, String maxAtmosphericSpeed, String crew, String passengers, String cargoCapacity, String consumables, String vehicleClass){
         Vehicle v = Vehicle.getInstance();
+        v.set_id(_id);
         v.setName(name);
         v.setModel(model);
         v.setManufacturer(manufacturer);
@@ -42,6 +43,14 @@ public class Vehicle implements Serializable{
         v.setConsumables(consumables);
         v.setVehicleClass(vehicleClass);
         return v;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -135,7 +144,8 @@ public class Vehicle implements Serializable{
     @Override
     public String toString() {
         return "Vehicle{" +
-                "name='" + name + '\'' +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
                 ", model='" + model + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", costInCredits='" + costInCredits + '\'' +
@@ -156,6 +166,8 @@ public class Vehicle implements Serializable{
 
         Vehicle vehicle = (Vehicle) o;
 
+        if (get_id() != null ? !get_id().equals(vehicle.get_id()) : vehicle.get_id() != null)
+            return false;
         if (getName() != null ? !getName().equals(vehicle.getName()) : vehicle.getName() != null)
             return false;
         if (getModel() != null ? !getModel().equals(vehicle.getModel()) : vehicle.getModel() != null)
@@ -182,7 +194,8 @@ public class Vehicle implements Serializable{
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
+        int result = get_id() != null ? get_id().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getModel() != null ? getModel().hashCode() : 0);
         result = 31 * result + (getManufacturer() != null ? getManufacturer().hashCode() : 0);
         result = 31 * result + (getCostInCredits() != null ? getCostInCredits().hashCode() : 0);

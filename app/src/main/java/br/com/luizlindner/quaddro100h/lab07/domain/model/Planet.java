@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class Planet implements Serializable{
+    private String _id;
     private String name;
     private String rotationPeriod;
     private String orbitalPeriod;
@@ -24,8 +25,9 @@ public class Planet implements Serializable{
         return new Planet();
     }
 
-    public static Planet of(String name, String rotationPeriod, String orbitalPeriod, String diameter, String climate, String gravity, String terrain, String surfaceWater, String population){
+    public static Planet of(String _id, String name, String rotationPeriod, String orbitalPeriod, String diameter, String climate, String gravity, String terrain, String surfaceWater, String population){
         Planet p = Planet.getInstance();
+        p.set_id(_id);
         p.setName(name);
         p.setRotationPeriod(rotationPeriod);
         p.setOrbitalPeriod(orbitalPeriod);
@@ -36,6 +38,14 @@ public class Planet implements Serializable{
         p.setSurfaceWater(surfaceWater);
         p.setPopulation(population);
         return p;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -113,7 +123,8 @@ public class Planet implements Serializable{
     @Override
     public String toString() {
         return "Planet{" +
-                "name='" + name + '\'' +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
                 ", rotationPeriod='" + rotationPeriod + '\'' +
                 ", orbitalPeriod='" + orbitalPeriod + '\'' +
                 ", diameter='" + diameter + '\'' +
@@ -132,6 +143,8 @@ public class Planet implements Serializable{
 
         Planet planet = (Planet) o;
 
+        if (get_id() != null ? !get_id().equals(planet.get_id()) : planet.get_id() != null)
+            return false;
         if (getName() != null ? !getName().equals(planet.getName()) : planet.getName() != null)
             return false;
         if (getRotationPeriod() != null ? !getRotationPeriod().equals(planet.getRotationPeriod()) : planet.getRotationPeriod() != null)
@@ -154,7 +167,8 @@ public class Planet implements Serializable{
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
+        int result = get_id() != null ? get_id().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getRotationPeriod() != null ? getRotationPeriod().hashCode() : 0);
         result = 31 * result + (getOrbitalPeriod() != null ? getOrbitalPeriod().hashCode() : 0);
         result = 31 * result + (getDiameter() != null ? getDiameter().hashCode() : 0);

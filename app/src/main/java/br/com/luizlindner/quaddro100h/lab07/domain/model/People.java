@@ -9,6 +9,7 @@ import java.util.List;
  */
 
 public class People implements Serializable {
+    private String _id;
     private String name;
     private String height;
     private String mass;
@@ -37,8 +38,9 @@ public class People implements Serializable {
         return new People();
     }
 
-    public static People of(String name, String height, String mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender, Planet homeworld, List<Film> films, List<Specie> species, List<Vehicle> vehicles, List<Starship> starships){
+    public static People of(String _id, String name, String height, String mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender, Planet homeworld, List<Film> films, List<Specie> species, List<Vehicle> vehicles, List<Starship> starships){
         People p = People.getInstance();
+        p.set_id(_id);
         p.setName(name);
         p.setHeight(height);
         p.setMass(mass);
@@ -53,6 +55,43 @@ public class People implements Serializable {
         p.setVehicles(vehicles);
         p.setStarships(starships);
         return p;
+    }
+
+    public static People of(String _id, String name, String height, String mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender, Planet homeworld){
+        People p = People.getInstance();
+        p.set_id(_id);
+        p.setName(name);
+        p.setHeight(height);
+        p.setMass(mass);
+        p.setHairColor(hairColor);
+        p.setSkinColor(skinColor);
+        p.setEyeColor(eyeColor);
+        p.setBirthYear(birthYear);
+        p.setGender(gender);
+        p.setHomeworld(homeworld);
+        return p;
+    }
+
+    public static People of(String _id, String name, String height, String mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender){
+        People p = People.getInstance();
+        p.set_id(_id);
+        p.setName(name);
+        p.setHeight(height);
+        p.setMass(mass);
+        p.setHairColor(hairColor);
+        p.setSkinColor(skinColor);
+        p.setEyeColor(eyeColor);
+        p.setBirthYear(birthYear);
+        p.setGender(gender);
+        return p;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -162,7 +201,8 @@ public class People implements Serializable {
     @Override
     public String toString() {
         return "People{" +
-                "name='" + name + '\'' +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
                 ", height='" + height + '\'' +
                 ", mass='" + mass + '\'' +
                 ", hairColor='" + hairColor + '\'' +
@@ -185,49 +225,46 @@ public class People implements Serializable {
 
         People people = (People) o;
 
-        if (getName() != null ? !getName().equals(people.getName()) : people.getName() != null)
+        if (_id != null ? !_id.equals(people._id) : people._id != null) return false;
+        if (name != null ? !name.equals(people.name) : people.name != null) return false;
+        if (height != null ? !height.equals(people.height) : people.height != null) return false;
+        if (mass != null ? !mass.equals(people.mass) : people.mass != null) return false;
+        if (hairColor != null ? !hairColor.equals(people.hairColor) : people.hairColor != null)
             return false;
-        if (getHeight() != null ? !getHeight().equals(people.getHeight()) : people.getHeight() != null)
+        if (skinColor != null ? !skinColor.equals(people.skinColor) : people.skinColor != null)
             return false;
-        if (getMass() != null ? !getMass().equals(people.getMass()) : people.getMass() != null)
+        if (eyeColor != null ? !eyeColor.equals(people.eyeColor) : people.eyeColor != null)
             return false;
-        if (getHairColor() != null ? !getHairColor().equals(people.getHairColor()) : people.getHairColor() != null)
+        if (birthYear != null ? !birthYear.equals(people.birthYear) : people.birthYear != null)
             return false;
-        if (getSkinColor() != null ? !getSkinColor().equals(people.getSkinColor()) : people.getSkinColor() != null)
+        if (gender != null ? !gender.equals(people.gender) : people.gender != null) return false;
+        if (homeworld != null ? !homeworld.equals(people.homeworld) : people.homeworld != null)
             return false;
-        if (getEyeColor() != null ? !getEyeColor().equals(people.getEyeColor()) : people.getEyeColor() != null)
+        if (films != null ? !films.equals(people.films) : people.films != null) return false;
+        if (species != null ? !species.equals(people.species) : people.species != null)
             return false;
-        if (getBirthYear() != null ? !getBirthYear().equals(people.getBirthYear()) : people.getBirthYear() != null)
+        if (vehicles != null ? !vehicles.equals(people.vehicles) : people.vehicles != null)
             return false;
-        if (getGender() != null ? !getGender().equals(people.getGender()) : people.getGender() != null)
-            return false;
-        if (getHomeworld() != null ? !getHomeworld().equals(people.getHomeworld()) : people.getHomeworld() != null)
-            return false;
-        if (getFilms() != null ? !getFilms().equals(people.getFilms()) : people.getFilms() != null)
-            return false;
-        if (getSpecies() != null ? !getSpecies().equals(people.getSpecies()) : people.getSpecies() != null)
-            return false;
-        if (getVehicles() != null ? !getVehicles().equals(people.getVehicles()) : people.getVehicles() != null)
-            return false;
-        return getStarships() != null ? getStarships().equals(people.getStarships()) : people.getStarships() == null;
+        return starships != null ? starships.equals(people.starships) : people.starships == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
-        result = 31 * result + (getHeight() != null ? getHeight().hashCode() : 0);
-        result = 31 * result + (getMass() != null ? getMass().hashCode() : 0);
-        result = 31 * result + (getHairColor() != null ? getHairColor().hashCode() : 0);
-        result = 31 * result + (getSkinColor() != null ? getSkinColor().hashCode() : 0);
-        result = 31 * result + (getEyeColor() != null ? getEyeColor().hashCode() : 0);
-        result = 31 * result + (getBirthYear() != null ? getBirthYear().hashCode() : 0);
-        result = 31 * result + (getGender() != null ? getGender().hashCode() : 0);
-        result = 31 * result + (getHomeworld() != null ? getHomeworld().hashCode() : 0);
-        result = 31 * result + (getFilms() != null ? getFilms().hashCode() : 0);
-        result = 31 * result + (getSpecies() != null ? getSpecies().hashCode() : 0);
-        result = 31 * result + (getVehicles() != null ? getVehicles().hashCode() : 0);
-        result = 31 * result + (getStarships() != null ? getStarships().hashCode() : 0);
+        int result = _id != null ? _id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (height != null ? height.hashCode() : 0);
+        result = 31 * result + (mass != null ? mass.hashCode() : 0);
+        result = 31 * result + (hairColor != null ? hairColor.hashCode() : 0);
+        result = 31 * result + (skinColor != null ? skinColor.hashCode() : 0);
+        result = 31 * result + (eyeColor != null ? eyeColor.hashCode() : 0);
+        result = 31 * result + (birthYear != null ? birthYear.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+        result = 31 * result + (homeworld != null ? homeworld.hashCode() : 0);
+        result = 31 * result + (films != null ? films.hashCode() : 0);
+        result = 31 * result + (species != null ? species.hashCode() : 0);
+        result = 31 * result + (vehicles != null ? vehicles.hashCode() : 0);
+        result = 31 * result + (starships != null ? starships.hashCode() : 0);
         return result;
     }
 }

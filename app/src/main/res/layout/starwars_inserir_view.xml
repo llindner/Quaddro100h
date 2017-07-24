@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="people"
+            type="br.com.luizlindner.quaddro100h.lab07.domain.model.People" />
+
+        <variable
+            name="controller"
+            type="br.com.luizlindner.quaddro100h.lab07.app.binding.StarwarsAction" />
+    </data>
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@android:color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,9 +29,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:fontFamily="monospace"
                 android:text="Personagens de StarWars"
                 android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                android:textAllCaps="false"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/starwarsYellow"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -32,265 +48,373 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:text="ID do Personagem: #"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true" />
+                    android:textColor="@color/starwarsYellow"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/sw_txt_personId"
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/textView6" />
+                    android:layout_toEndOf="@+id/textView6"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textColor="@color/starwarsYellow" />
 
                 <Button
                     android:id="@+id/btn_buscar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:layout_toEndOf="@+id/sw_txt_personId"
-                    android:onClick="buscarId"/>
+                    android:onClick="@{controller::buscarId}"
+                    android:text="Buscar!"
+                    android:background="@android:color/white"
+                    android:textColor="@android:color/black" />
 
 
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/sw_layout_dados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:visibility="invisible">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nome:" />
-
-                <TextView
-                    android:id="@+id/txt_sw_name"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Nome:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Altura:" />
+                    <TextView
+                        android:id="@+id/txt_sw_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.name}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_height"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Altura:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Peso:" />
+                    <TextView
+                        android:id="@+id/txt_sw_height"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.height}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_mass"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Peso:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cor do cabelo:" />
+                    <TextView
+                        android:id="@+id/txt_sw_mass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.mass}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_hair_color"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Cor do cabelo:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cor da pele:" />
+                    <TextView
+                        android:id="@+id/txt_sw_hair_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.hairColor}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_skin_color"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Cor da pele:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cor do olho:" />
+                    <TextView
+                        android:id="@+id/txt_sw_skin_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.skinColor}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_eye_color"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Cor do olho:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data de Nascimento:" />
+                    <TextView
+                        android:id="@+id/txt_sw_eye_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.eyeColor}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_birth_year"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Data de Nascimento:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gênero:" />
+                    <TextView
+                        android:id="@+id/txt_sw_birth_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.birthYear}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_sw_gender"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="" />
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Gênero:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_sw_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.gender}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Planeta Natal:"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_sw_homeworld"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="monospace"
+                        android:paddingLeft="5dp"
+                        android:text="@{people.homeworld.name}"
+                        android:textColor="@color/starwarsYellow"
+                        android:textStyle="bold|italic" />
+
+                    <Button
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ver" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Filmes"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:textColor="@color/starwarsYellow"
+                            android:textStyle="bold" />
+
+                        <br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView
+                            android:id="@+id/list_sw_films"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Especies"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:textColor="@color/starwarsYellow"
+                            android:textStyle="bold" />
+
+                        <br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView
+                            android:id="@+id/list_sw_species"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Veículos"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:textColor="@color/starwarsYellow"
+                            android:textStyle="bold" />
+
+                        <br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView
+                            android:id="@+id/list_sw_vehicles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Naves"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:textColor="@color/starwarsYellow"
+                            android:textStyle="bold" />
+
+                        <br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView
+                            android:id="@+id/list_sw_starships"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </br.com.luizlindner.quaddro100h.lab07.app.util.NonScrollListView>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Planeta Natal:" />
-
-                <TextView
-                    android:id="@+id/txt_sw_homeworld"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:paddingLeft="5dp"
-                    android:text="" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Ver" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Filmes"
-                android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <ListView
-                android:id="@+id/list_sw_films"
-                android:layout_width="match_parent"
-                android:layout_height="150dp">
-
-            </ListView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Especies"
-                android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <ListView
-                android:id="@+id/list_sw_species"
-                android:layout_width="match_parent"
-                android:layout_height="150dp">
-
-            </ListView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Veículos"
-                android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <ListView
-                android:id="@+id/list_sw_vehicles"
-                android:layout_width="match_parent"
-                android:layout_height="150dp">
-
-            </ListView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Naves"
-                android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <ListView
-                android:id="@+id/list_sw_starships"
-                android:layout_width="match_parent"
-                android:layout_height="150dp">
-
-            </ListView>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+</layout>

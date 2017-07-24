@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@android:color/black">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Episódio"
+        android:textColor="@color/starwarsYellow"/>
+    <TextView
+        android:id="@+id/linha_film_episodeId"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewEnd"
+        android:text="1"
+        android:textColor="@color/starwarsYellow"/>
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text=" - "
+        android:textColor="@color/starwarsYellow"/>
+    <TextView
+        android:id="@+id/linha_film_episodeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="A New Hope (1994)"
+        android:textColor="@color/starwarsYellow"/>
+    <Button
+        android:id="@+id/linha_film_btn"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Ver"
+        android:onClick="initiatePopupWindow"
+        android:background="@android:color/white"/>
+
+</LinearLayout>
