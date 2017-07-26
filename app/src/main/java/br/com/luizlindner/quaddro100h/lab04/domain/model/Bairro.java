@@ -3,6 +3,8 @@ package br.com.luizlindner.quaddro100h.lab04.domain.model;
 import java.io.Serializable;
 import java.util.Locale;
 
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.BairroException;
+
 /**
  * Created by Luiz on 12/07/2017.
  */
@@ -79,5 +81,15 @@ public class Bairro implements Serializable {
 
     public UF getUf() {
         return getMunicipio().getUf();
+    }
+
+    public void validar() throws BairroException{
+        if(nome == null){
+            throw new BairroException("Bairro nulo");
+        }
+
+        if(nome.isEmpty()){
+            throw new BairroException("Favor informe o bairro");
+        }
     }
 }

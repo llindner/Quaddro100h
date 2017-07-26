@@ -3,6 +3,8 @@ package br.com.luizlindner.quaddro100h.lab04.domain.model;
 import java.io.Serializable;
 import java.util.Locale;
 
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.MunicipioException;
+
 /**
  * Created by Luiz on 12/07/2017.
  */
@@ -61,5 +63,15 @@ public class Municipio implements Serializable {
         int result = getNome() != null ? getNome().hashCode() : 0;
         result = 31 * result + (getUf() != null ? getUf().hashCode() : 0);
         return result;
+    }
+
+    public void validar() throws MunicipioException{
+        if(nome == null){
+            throw new MunicipioException("Nome do Municipio NULO");
+        }
+
+        if(nome.isEmpty()){
+            throw new MunicipioException("Favor informar o nome do município");
+        }
     }
 }

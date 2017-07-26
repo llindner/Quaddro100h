@@ -5,6 +5,8 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.Locale;
 
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.CEPException;
+
 /**
  * Created by Luiz on 12/07/2017.
  */
@@ -33,17 +35,17 @@ public class CEP implements Serializable {
         this.codigo = codigo;
     }
 
-    public void validar() throws Exception {
+    public void validar() throws CEPException {
         if(getCodigo() == null){
-            throw new Exception("CEP NULO");
+            throw new CEPException("CEP NULO");
         }
 
         if(getCodigo().isEmpty()){
-            throw new Exception("Favor informar o CEP");
+            throw new CEPException("Favor informar o CEP");
         }
 
         if(getCodigo().length() != 8){
-            throw new Exception("Favor informar um CEP válido");
+            throw new CEPException("Favor informar um CEP válido");
         }
     }
 

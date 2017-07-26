@@ -3,21 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="E:\Projetos\Quaddro100h\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Projetos\Quaddro100h\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="5695b1f7e55ff9ce3f49b87dc817bfb260319b4a">
-        <dex dex="E:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_76d54be255a49293497b59e352584a2bffff886f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Projetos\Quaddro100h\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="E:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c2ff0457444e32f18e59f7949a14ef370bbfaa91\classes.dex" />
+        sha1="a9393b28024f22bcb3d231010416cc1728b0f796">
+        <dex dex="C:\Projetos\Quaddro100h\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6bbe4a187cb2a472d98e1d866b473eca90cce316\classes.dex" />
     </item>
 
 </items>

@@ -1,7 +1,15 @@
 package br.com.luizlindner.quaddro100h.lab04.domain.model;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.Locale;
+
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.BairroException;
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.CEPException;
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.EnderecoException;
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.LogradouroException;
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.MunicipioException;
 
 /**
  * Created by Luiz on 12/07/2017.
@@ -10,6 +18,7 @@ import java.util.Locale;
 public class Endereco implements Serializable {
     // Alameda Santos, 1000, andar 7 , Jardim Paulista, 00000-000, São Paulo, SP
 
+    private Long id;
     private String numero;
     private String complemento;
     private CEP cep;
@@ -19,6 +28,20 @@ public class Endereco implements Serializable {
         super();
         this.cep = CEP.getInstance();
         this.logradouro = new Logradouro();
+    }
+
+    public Endereco(Long id){
+        this();
+
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNumero() {
@@ -65,6 +88,14 @@ public class Endereco implements Serializable {
         getLogradouro().setBairroNome(nome);
     }
 
+    public String getLogradouroTipo() {
+        return getLogradouro().getTipo();
+    }
+
+    public String getLogradouroNome(){
+        return getLogradouro().getNome();
+    }
+
     public void setLogradouroTipo(String tipo) {
         getLogradouro().setTipo(tipo);
     }
@@ -81,6 +112,10 @@ public class Endereco implements Serializable {
         return new Endereco();
     }
 
+    public static Endereco getInstance(Long id){
+        return new Endereco(id);
+    }
+
     public UF getUf(){
         return getLogradouro().getUf();
     }
@@ -91,6 +126,18 @@ public class Endereco implements Serializable {
 
     public String getMunicipioNome(){
         return getLogradouro().getMunicipioNome();
+    }
+
+    public Bairro getBairro(){
+        return getLogradouro().getBairro();
+    }
+
+    public Municipio getMunicipio(){
+        return getLogradouro().getMunicipio();
+    }
+
+    public boolean isNullId(){
+        return getId() == null;
     }
 
     public static Endereco of(String cep, String logradouroTipo, String logradouroNome, String numero, String complemento, String bairro, String municipio, UF uf) {
@@ -122,6 +169,43 @@ public class Endereco implements Serializable {
         e.setUf(UF.valueOf(uf));
 
         return e;
+    }
+
+    public static Endereco of(String cep, String logradouroCompleto, String numero, String complemento, String bairro, String municipio, UF uf) {
+        String tipo;
+        if(logradouroCompleto.length() > 0) {
+            int index = logradouroCompleto.indexOf(" ");
+            if(index > 0) {
+                tipo = logradouroCompleto.substring(0, index);
+                logradouroCompleto = logradouroCompleto.substring(index + 1);
+            }else{
+                tipo = logradouroCompleto;
+                logradouroCompleto = "";
+            }
+        } else {
+            tipo = "";
+        }
+
+        return of(cep, tipo, logradouroCompleto, numero, complemento, bairro, municipio, uf);
+    }
+
+    public void validar() throws EnderecoException{
+    }
+
+    public void validarLogradouro() throws LogradouroException{
+        getLogradouro().validar();
+    }
+
+    public void validarCEP() throws CEPException{
+        getCep().validar();
+    }
+
+    public void validarBairro() throws BairroException{
+        getBairro().validar();
+    }
+
+    public void validarMunicipio() throws MunicipioException{
+        getMunicipio().validar();
     }
 
     @Override

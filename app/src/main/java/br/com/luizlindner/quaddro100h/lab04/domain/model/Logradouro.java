@@ -3,6 +3,8 @@ package br.com.luizlindner.quaddro100h.lab04.domain.model;
 import java.io.Serializable;
 import java.util.Locale;
 
+import br.com.luizlindner.quaddro100h.lab04.domain.exception.LogradouroException;
+
 /**
  * Created by Luiz on 12/07/2017.
  */
@@ -61,6 +63,10 @@ public class Logradouro implements Serializable {
         return String.format(Locale.getDefault(), "%s %s", getTipo(), getNome());
     }
 
+    /*public void setLogradouroCompleto(){
+
+    }*/
+
     public Integer getUFOrdinal(){
         return getBairro().getUFOrdinal();
     }
@@ -99,5 +105,28 @@ public class Logradouro implements Serializable {
         result = 31 * result + (getNome() != null ? getNome().hashCode() : 0);
         result = 31 * result + (getBairro() != null ? getBairro().hashCode() : 0);
         return result;
+    }
+
+    public Municipio getMunicipio() {
+        return getBairro().getMunicipio();
+    }
+
+    public void validar() throws LogradouroException{
+        if(tipo == null){
+            throw new LogradouroException("Tipo nulo!");
+        }
+
+        if(tipo.isEmpty()){
+            throw new LogradouroException("Favor, informe o tipo!");
+        }
+
+        if(nome == null){
+            throw new LogradouroException("Nome nulo!");
+        }
+
+        if(nome.isEmpty()){
+            throw new LogradouroException("Favor, informe o nome");
+        }
+
     }
 }

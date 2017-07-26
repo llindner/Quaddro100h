@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.opengl.EGLExt;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,12 +26,14 @@ import br.com.luizlindner.quaddro100h.R;
 import br.com.luizlindner.quaddro100h.lab01.app.controller.QuaddroActivity;
 import br.com.luizlindner.quaddro100h.lab04.domain.model.Endereco;
 import br.com.luizlindner.quaddro100h.lab04.domain.model.UF;
+import br.com.luizlindner.quaddro100h.lab04.repository.util.EnderecoSQLiteHelper;
 
 /**
  * Created by Luiz on 06/07/2017.
  */
 
 public class EnderecoListarActivity extends ListActivity {
+    private EnderecoSQLiteHelper sqlite;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,6 +57,8 @@ public class EnderecoListarActivity extends ListActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sqlite = EnderecoSQLiteHelper.with(this);
         registerForContextMenu(getListView());
     }
 
@@ -65,10 +72,14 @@ public class EnderecoListarActivity extends ListActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+        final AdapterView.AdapterContextMenuInfo info;
+        info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
         switch (item.getItemId()){
             case R.id.endereco_alterar:
                 Log.i(QuaddroActivity.TIPO_DE_LOG, "Alterar!!");
                 Intent i = new Intent(this, EnderecoAlterarActivity.class);
+                i.putExtra("_id", info.id);
                 startActivity(i);
                 break;
             case R.id.endereco_excluir:
@@ -80,9 +91,15 @@ public class EnderecoListarActivity extends ListActivity {
                         .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Log.i(QuaddroActivity.TIPO_DE_LOG, "Endereço Excluído");
-                                Toast.makeText(getApplicationContext(), "Endereço Excluído", Toast.LENGTH_SHORT).show();
-                                // TODO Excluir Endereço do SQLite
+                                try {
+                                    sqlite.apagar(info.id);
+                                    Log.i(QuaddroActivity.TIPO_DE_LOG, "Endereço Excluído");
+                                    Toast.makeText(getApplicationContext(), "Endereço Excluído", Toast.LENGTH_SHORT).show();
+                                    onResume();
+                                } catch (Exception e){
+                                    Log.e(QuaddroActivity.TIPO_DE_LOG, "Não conseguiu excluir o endereço", e);
+                                    Toast.makeText(getApplicationContext(), "OPS...", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         })
                         .setNegativeButton("Não", null)
@@ -94,16 +111,36 @@ public class EnderecoListarActivity extends ListActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        sqlite.abrirDB();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        sqlite.fecharDB();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
-        ArrayList<Endereco> list = new ArrayList<>();
-        list.add(Endereco.of("02469120", "Rua", "Campo Comprido", "3", "Apto 24", "Vila Romero", "Sâo Paulo", UF.SP));
-        list.add(Endereco.of("98280000", "Rua", "Protásio Alves", "81", "", "Centro", "Panambi", UF.RS));
-        list.add(Endereco.of("", "Alameda", "Santos", "1000", "7º Andar", "Jardim Paulista", "São Paulo", UF.SP));
-        // TODO Fazer a busca no banco de dados SQLite
+        try {
+            ArrayList<Endereco> list = sqlite.listarTodos();
+            Cursor c = sqlite.listarTodosPorCursor();
+            SimpleCursorAdapter sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, c, new String[] { "logradouro_tipo", "logradouro_nome" }, new int[] {android.R.id.text1, android.R.id.text2}, 0);
 
-        ArrayAdapter<Endereco> adapter = new ArrayAdapter<Endereco>(this, android.R.layout.simple_list_item_1, list);
-        setListAdapter(adapter);
+            ArrayAdapter<Endereco> adapter = new ArrayAdapter<Endereco>(this, android.R.layout.simple_list_item_1, list);
+            setListAdapter(sca);
+        } catch (Exception e) {
+            Log.e("LAB", "Ops...", e);
+            Toast.makeText(this, "OPS...", Toast.LENGTH_SHORT).show();
+        }
+        /*list.add(Endereco.of("02469120", "Rua", "Campo Comprido", "3", "Apto 24", "Vila Romero", "Sâo Paulo", UF.SP));
+        list.add(Endereco.of("98280000", "Rua", "Protásio Alves", "81", "", "Centro", "Panambi", UF.RS));
+        list.add(Endereco.of("", "Alameda", "Santos", "1000", "7º Andar", "Jardim Paulista", "São Paulo", UF.SP));*/
+
+
     }
 }
