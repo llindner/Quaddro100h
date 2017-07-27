@@ -29,6 +29,8 @@
         <activity android:name=".lab06.app.controller.AnimacaoQuaddroActivity"></activity>
         <activity android:name=".lab07.app.controller.StarwarsListarActivity" android:theme="@style/Widget.AppCompat.Light.ActionBar"></activity>
         <activity android:name=".lab07.app.controller.StarwarsInserirActivity"></activity>
+        <activity android:name=".lab08.app.controller.HotelListActivity"></activity>
+        <activity android:name=".lab08.app.controller.HotelActivity"></activity>
 
 
         <service android:name=".lab04.app.service.ConsultarCEPService" />

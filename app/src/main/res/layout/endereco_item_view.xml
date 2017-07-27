@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/endereco_item_logradouro_tipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Rua" />
+            <TextView
+                android:id="@+id/endereco_item_logradouro_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Campo Comprido" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="," />
+            <TextView
+                android:id="@+id/endereco_item_numero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical" >
+
+
+            <TextView
+                android:id="@+id/endereco_item_complemento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Apto 24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/endereco_item_bairro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vila Romero" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="," />
+            <TextView
+                android:id="@+id/endereco_item_municipio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="São Paulo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text=" - " />
+            <TextView
+                android:id="@+id/endereco_item_uf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="SP" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/endereco_item_cep"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="02469120"
+        android:textStyle="bold"/>
+</LinearLayout>

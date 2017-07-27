@@ -129,7 +129,7 @@ public class EnderecoListarActivity extends ListActivity {
         try {
             ArrayList<Endereco> list = sqlite.listarTodos();
             Cursor c = sqlite.listarTodosPorCursor();
-            SimpleCursorAdapter sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, c, new String[] { "logradouro_tipo", "logradouro_nome" }, new int[] {android.R.id.text1, android.R.id.text2}, 0);
+            SimpleCursorAdapter sca = new SimpleCursorAdapter(this, R.layout.endereco_item_view, c, new String[] { "logradouro_tipo", "logradouro_nome", "numero", "bairro", "municipio", "uf", "cep" }, new int[] {R.id.endereco_item_logradouro_tipo, R.id.endereco_item_logradouro_nome, R.id.endereco_item_numero, R.id.endereco_item_bairro, R.id.endereco_item_municipio, R.id.endereco_item_uf, R.id.endereco_item_cep}, 0);
 
             ArrayAdapter<Endereco> adapter = new ArrayAdapter<Endereco>(this, android.R.layout.simple_list_item_1, list);
             setListAdapter(sca);

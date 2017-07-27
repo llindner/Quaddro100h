@@ -63,9 +63,23 @@ public class Logradouro implements Serializable {
         return String.format(Locale.getDefault(), "%s %s", getTipo(), getNome());
     }
 
-    /*public void setLogradouroCompleto(){
-
-    }*/
+    public void setLogradouroCompleto(String logradouroCompleto){
+        String tipo;
+        if(logradouroCompleto.length() > 0) {
+            int index = logradouroCompleto.indexOf(" ");
+            if(index > 0) {
+                tipo = logradouroCompleto.substring(0, index);
+                logradouroCompleto = logradouroCompleto.substring(index + 1);
+            }else{
+                tipo = logradouroCompleto;
+                logradouroCompleto = "";
+            }
+        } else {
+            tipo = "";
+        }
+        setTipo(tipo);
+        setNome(logradouroCompleto);
+    }
 
     public Integer getUFOrdinal(){
         return getBairro().getUFOrdinal();
