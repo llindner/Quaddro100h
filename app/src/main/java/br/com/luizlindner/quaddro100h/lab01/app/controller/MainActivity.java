@@ -12,6 +12,7 @@ import br.com.luizlindner.quaddro100h.lab05.app.controller.AnimacaoActivity;
 import br.com.luizlindner.quaddro100h.lab06.app.controller.AnimacaoQuaddroActivity;
 import br.com.luizlindner.quaddro100h.lab07.app.controller.StarwarsListarActivity;
 import br.com.luizlindner.quaddro100h.lab08.app.controller.HotelListActivity;
+import br.com.luizlindner.quaddro100h.lab09.app.controller.NotificationActivity;
 
 /**
  * Created by Luiz on 04/07/2017.
@@ -32,6 +33,7 @@ public class MainActivity extends QuaddroActivity {
         setOnClickActivity(R.id.btn_animacao_quaddro, AnimacaoQuaddroActivity.class);
         setOnClickActivity(R.id.btn_starwars, StarwarsListarActivity.class);
         setOnClickActivity(R.id.btn_fragment, HotelListActivity.class);
+        setOnClickActivity(R.id.btn_notificacao, NotificationActivity.class);
     }
 
 }

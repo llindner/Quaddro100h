@@ -2,6 +2,7 @@ package br.com.luizlindner.quaddro100h.lab08.app.controller;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class HotelFragment extends QuaddroFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View layout = inflater.inflate(R.layout.hotel_fragment_view, container, false);
         nomeView = (TextView) layout.findViewById(R.id.hotelNome);
         enderecoView = (TextView) layout.findViewById(R.id.hotelEndereco);
@@ -41,6 +43,6 @@ public class HotelFragment extends QuaddroFragment {
             estrelasView.setRating(model.getEstrelas());
         }
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return layout;
     }
 }

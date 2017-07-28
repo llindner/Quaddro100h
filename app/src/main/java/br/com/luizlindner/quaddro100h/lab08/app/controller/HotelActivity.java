@@ -37,7 +37,6 @@ public class HotelActivity extends QuaddroActivity {
         model = (Hotel) getIntent().getSerializableExtra("hotel");
         hotelFragment = new HotelFragment();
         Bundle b = new Bundle();
-        Log.i("Chegou aqui", model.toString());
         b.putSerializable("hotel", model);
         hotelFragment.setArguments(b);
 

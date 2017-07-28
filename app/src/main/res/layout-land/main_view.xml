@@ -96,6 +96,14 @@
                 android:text="@string/btn_fragment"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/btn_notificacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_notificacao"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

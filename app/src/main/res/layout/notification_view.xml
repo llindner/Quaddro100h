@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="50sp"
+        android:text="Notificações Tipo Uber" />
+
+    <Button
+        android:id="@+id/notificacao_simples"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notificaçao Simples"
+        android:onClick="notificarSimples"/>
+
+    <Button
+        android:id="@+id/notificacao_completa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notificação Completa"
+        android:onClick="notificarCompleto"/>
+
+    <Button
+        android:id="@+id/notificacao_tipo_uber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notificação Tipo Uber"
+        android:onClick="notificarTipoUber"/>
+</LinearLayout>

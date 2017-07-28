@@ -31,6 +31,7 @@
         <activity android:name=".lab07.app.controller.StarwarsInserirActivity"></activity>
         <activity android:name=".lab08.app.controller.HotelListActivity"></activity>
         <activity android:name=".lab08.app.controller.HotelActivity"></activity>
+        <activity android:name=".lab09.app.controller.NotificationActivity"></activity>
 
 
         <service android:name=".lab04.app.service.ConsultarCEPService" />

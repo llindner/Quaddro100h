@@ -3,6 +3,7 @@ package br.com.luizlindner.quaddro100h.lab08.app.controller;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.widget.FrameLayout;
 
 import br.com.luizlindner.quaddro100h.R;
 import br.com.luizlindner.quaddro100h.lab01.app.controller.QuaddroActivity;
@@ -13,10 +14,15 @@ import br.com.luizlindner.quaddro100h.lab01.app.controller.QuaddroActivity;
 
 public class HotelListActivity extends QuaddroActivity {
 
+    FrameLayout detalhe;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.hotel_listar_view);
+
+        detalhe = getViewById(R.id.detalhe);
+
     }
 }
