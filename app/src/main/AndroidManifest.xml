@@ -2,6 +2,9 @@
           
     package="br.com.luizlindner.quaddro100h">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
@@ -32,12 +35,26 @@
         <activity android:name=".lab08.app.controller.HotelListActivity"></activity>
         <activity android:name=".lab08.app.controller.HotelActivity"></activity>
         <activity android:name=".lab09.app.controller.NotificationActivity"></activity>
+        <activity android:name=".lab99.app.controller.CameraActivity" android:screenOrientation="landscape"></activity>
 
 
+        <service android:name=".lab10.app.service.FavoritosService">
+            <intent-filter>
+                <action android:name="anterior" />
+                <action android:name="proximo" />
+                <action android:name="site" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
         <service android:name=".lab04.app.service.ConsultarCEPService" />
         <service android:name=".lab07.app.service.ConsultarStarwarsService" />
 
-
+        <receiver android:name=".lab10.app.receiver.FavoritosWidget" android:label="Meus Favoritos">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:resource="@xml/favoritos_widget" android:name="android.appwidget.provider" />
+        </receiver>
     </application>
 
 
