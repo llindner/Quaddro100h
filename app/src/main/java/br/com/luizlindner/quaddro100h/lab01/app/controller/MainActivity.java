@@ -12,6 +12,7 @@ import br.com.luizlindner.quaddro100h.lab06.app.controller.AnimacaoQuaddroActivi
 import br.com.luizlindner.quaddro100h.lab07.app.controller.StarwarsListarActivity;
 import br.com.luizlindner.quaddro100h.lab08.app.controller.HotelListActivity;
 import br.com.luizlindner.quaddro100h.lab09.app.controller.NotificationActivity;
+import br.com.luizlindner.quaddro100h.lab11.app.controller.SensorActivity;
 import br.com.luizlindner.quaddro100h.lab99.app.controller.CameraActivity;
 
 /**
@@ -34,6 +35,7 @@ public class MainActivity extends QuaddroActivity {
         setOnClickActivity(R.id.btn_starwars, StarwarsListarActivity.class);
         setOnClickActivity(R.id.btn_fragment, HotelListActivity.class);
         setOnClickActivity(R.id.btn_notificacao, NotificationActivity.class);
+        setOnClickActivity(R.id.btn_sensores, SensorActivity.class);
         setOnClickActivity(R.id.btn_camera, CameraActivity.class);
     }
 
